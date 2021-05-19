@@ -127,7 +127,7 @@ def main():
         message['Subject'] = Header('job {} finished'.format(sys.argv[1]), 'utf-8')  # 邮件的标题
         smtper = SMTP('smtp.qq.com')
             # 请自行修改下面的登录口令
-        smtper.login(sender, '')  # QQ邮箱smtp的授权码
+        smtper.login(sender, '')  # 邮箱smtp的授权码
         smtper.sendmail(sender, receivers, message.as_string())
         print('邮件发送完成!')
 
