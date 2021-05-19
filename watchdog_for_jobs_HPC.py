@@ -119,15 +119,15 @@ def main():
                 stats = p.get_pid_state()
             if stats == 1:
                 p_cmd = p.get_local_cmd()
-        sender = options.send #'2890481517@qq.com'  # 发送者的邮箱地址
-        receivers =[str(options.recive)] #['2019204004@njau.edu.cn']  # 接收者的邮箱地址
+        sender = options.send  # 发送者的邮箱地址
+        receivers =[str(options.recive)] # 接收者的邮箱地址
         message = MIMEText('Job {}\n{}\n was done'.format(sys.argv[1], p_cmd), _subtype='plain', _charset='utf-8')
         message['From'] = Header('{}'.format(name), 'utf-8')  # 邮件的发送者
         message['To'] = Header('Qionghou', 'utf-8')  # 邮件的接收者
         message['Subject'] = Header('job {} finished'.format(sys.argv[1]), 'utf-8')  # 邮件的标题
         smtper = SMTP('smtp.qq.com')
             # 请自行修改下面的登录口令
-        smtper.login(sender, 'sfqvzfmguznidfga')  # QQ邮箱smtp的授权码
+        smtper.login(sender, '')  # QQ邮箱smtp的授权码
         smtper.sendmail(sender, receivers, message.as_string())
         print('邮件发送完成!')
 
